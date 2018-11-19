@@ -271,14 +271,18 @@ public final class StickyHeaderHelper extends OnScrollListener {
         params.width = view.getLayoutParams().width;
         params.height = view.getLayoutParams().height;
         // Margins from current offset
-        if (params.leftMargin == 0)
-            params.leftMargin = mRecyclerView.getLayoutManager().getLeftDecorationWidth(mStickyHeaderViewHolder.itemView);
-        if (params.topMargin == 0)
-            params.topMargin = mRecyclerView.getLayoutManager().getTopDecorationHeight(mStickyHeaderViewHolder.itemView);
-        if (params.rightMargin == 0)
-            params.rightMargin = mRecyclerView.getLayoutManager().getRightDecorationWidth(mStickyHeaderViewHolder.itemView);
-        if (params.bottomMargin == 0)
-            params.bottomMargin = mRecyclerView.getLayoutManager().getBottomDecorationHeight(mStickyHeaderViewHolder.itemView);
+        try {
+            if (params.leftMargin == 0)
+                params.leftMargin = mRecyclerView.getLayoutManager().getLeftDecorationWidth(mStickyHeaderViewHolder.itemView);
+            if (params.topMargin == 0)
+                params.topMargin = mRecyclerView.getLayoutManager().getTopDecorationHeight(mStickyHeaderViewHolder.itemView);
+            if (params.rightMargin == 0)
+                params.rightMargin = mRecyclerView.getLayoutManager().getRightDecorationWidth(mStickyHeaderViewHolder.itemView);
+            if (params.bottomMargin == 0)
+                params.bottomMargin = mRecyclerView.getLayoutManager().getBottomDecorationHeight(mStickyHeaderViewHolder.itemView);
+        } catch(Exception ex) {
+
+        }
     }
 
     /**
